@@ -32,7 +32,7 @@ public class Personne {
     private String poste;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "personne", orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "personne", cascade = CascadeType.ALL)
     private List<Participation> affectations = new ArrayList<>();
 
     @ToString.Exclude
@@ -40,17 +40,7 @@ public class Personne {
     private Personne superieur;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "superieur", orphanRemoval = true)
+    @OneToMany(mappedBy = "superieur")
     private List<Personne> subordonnes = new ArrayList<>();
 
-    /**
-     * Ajoute une participation à un projet pour cette personne
-     * @param affectation Le projet auquel la personne participe
-     * @param role Le rôle de la personne dans le projet
-     * @param pourcentage Le pourcentage de temps que la personne consacre au projet
-     */
-    public void addParticipation(Projet affectation, String role, float pourcentage) {
-        var participation = new Participation(role, pourcentage, affectation, this);
-        affectations.add(participation);
-    }
 }

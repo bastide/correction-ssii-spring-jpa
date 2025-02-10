@@ -34,19 +34,8 @@ public class Projet {
     private LocalDate fin;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "projet", orphanRemoval = true)
+    @OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
     private List<Participation> contributeurs = new ArrayList<>();
 
-    /**
-     * Termine le projet
-     *  (met la date de fin à la date du jour)
-     */
-    public void terminer() {
-        fin = LocalDate.now();
-    }
-
-    public boolean estTermine() {
-        return fin != null;
-    }
 
 }
