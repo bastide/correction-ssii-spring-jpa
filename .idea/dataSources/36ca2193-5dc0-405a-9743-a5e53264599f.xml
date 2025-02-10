@@ -4,7 +4,7 @@
     <root id="1">
       <ServerVersion>2.2.224</ServerVersion>
     </root>
-    <database id="2" parent="1" name="TESTDB">
+    <database id="2" parent="1" name="PROJETS">
       <Current>1</Current>
     </database>
     <collation id="3" parent="2" name="ALBANIAN"/>
@@ -169,7 +169,7 @@
     <schema id="162" parent="2" name="INFORMATION_SCHEMA"/>
     <schema id="163" parent="2" name="PUBLIC">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-02-03.12:53:09</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-02-05.10:36:16</LastIntrospectionLocalTimestamp>
     </schema>
     <user id="164" parent="2" name="SA">
       <Admin>1</Admin>
@@ -185,17 +185,32 @@
       <SequenceStartValue>1</SequenceStartValue>
       <SequenceStoredType>INTEGER|0s</SequenceStoredType>
     </column>
-    <column id="167" parent="165" name="NOM">
-      <NotNull>1</NotNull>
+    <column id="167" parent="165" name="SUPERIEUR_MATRICULE">
       <Position>2</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="168" parent="165" name="NOM">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
       <StoredType>CHARACTER VARYING(255)|0s</StoredType>
     </column>
-    <index id="168" parent="165" name="PRIMARY_KEY_4">
+    <foreign-key id="169" parent="165" name="FKEJ4FDSTP8NVCHDFSK6OCO1981">
+      <ColNames>SUPERIEUR_MATRICULE</ColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+      <RefKeyName>CONSTRAINT_4</RefKeyName>
+      <RefTableName>PERSONNE</RefTableName>
+    </foreign-key>
+    <index id="170" parent="165" name="PRIMARY_KEY_4">
       <ColNames>MATRICULE</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="169" parent="165" name="CONSTRAINT_4">
+    <index id="171" parent="165" name="FKEJ4FDSTP8NVCHDFSK6OCO1981_INDEX_4">
+      <ColNames>SUPERIEUR_MATRICULE</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+    </index>
+    <key id="172" parent="165" name="CONSTRAINT_4">
       <ColNames>MATRICULE</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
